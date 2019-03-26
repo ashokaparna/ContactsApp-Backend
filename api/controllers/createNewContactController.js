@@ -1,8 +1,8 @@
 'use strict';
 
 
-var mongoose = require('mongoose'),
-    Contact = mongoose.model('Contacts');
+let mongoose = require('mongoose');
+let Contact = mongoose.model('Contacts');
 
 exports.list_all_contacts = function(req, res) {
   Contact.find({}, function(err, contact) {
@@ -12,8 +12,13 @@ exports.list_all_contacts = function(req, res) {
   });
 };
 
-
-
+exports.get_contact_by_id = function(req, res) {
+  Contact.findOne({_id:req.params._id}, function(err, contact) {
+    if (err)
+      res.send(err);
+    res.json(contact);
+  });
+};
 
 exports.create_a_contact = function(req, res) {
   var new_task = new Contact(req.body);
@@ -33,14 +38,14 @@ exports.create_a_contact = function(req, res) {
 //     });
 //   };
   
-  
-//   exports.update_a_task = function(req, res) {
-//     Task.findOneAndUpdate({_id: req.params.taskId}, req.body, {new: true}, function(err, task) {
-//       if (err)
-//         res.send(err);
-//       res.json(task);
-//     });
-//   };
+  //
+  // exports.update_a_task = function(req, res) {
+  //   Task.findOneAndUpdate({_id: req.params.taskId}, req.body, {new: true}, function(err, task) {
+  //     if (err)
+  //       res.send(err);
+  //     res.json(task);
+  //   });
+  // };
 
 //   exports.delete_a_task = function(req, res) {
 

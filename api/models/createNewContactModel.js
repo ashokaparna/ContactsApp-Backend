@@ -4,21 +4,23 @@ var Schema = mongoose.Schema;
 
 
 var ContactsSchema = new Schema({
-  name: {
+  firstname: {
     type: String,
-    required: 'Kindly enter the name of the person'
+    required: 'Kindly enter the first name of the person'
   },
-  // Created_date: {
-  //   type: Date,
-  //   default: Date.now
-  // },
-  // status: {
-  //   type: [{
-  //     type: String,
-  //     enum: ['pending', 'ongoing', 'completed']
-  //   }],
-  //   default: ['pending']
-  // }
+  lastname: {
+    type: String,
+    required: 'Kindly enter the last name of the person'
+  },
+  phonenumber: {
+    type: String,
+    required: 'Kindly enter the phone number of the person'
+  },
+  email: {
+    type: String,
+    required: 'Kindly enter the email of the person'
+  }
+
 });
 
 module.exports = mongoose.model('Contacts', ContactsSchema);
