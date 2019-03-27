@@ -14,6 +14,7 @@ exports.list_all_contacts = function(req, res) {
 
 exports.get_contact_by_id = function(req, res) {
   Contact.findOne({_id:req.params._id}, function(err, contact) {
+    res.header('Access-Control-Allow-Origin' , '*' );
     if (err)
       res.send(err);
     res.json(contact);
