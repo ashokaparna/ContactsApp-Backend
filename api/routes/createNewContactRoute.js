@@ -1,6 +1,6 @@
 'use strict';
 module.exports = function(app) {
-  var contacts = require('../controllers/createNewContactController');
+  var contacts = require('../controllers/contactsController');
 
   // todoList Routes
   app.route('/contacts')

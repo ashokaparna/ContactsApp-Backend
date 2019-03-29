@@ -2,7 +2,7 @@ var express = require('express'),
   app = express(),
   port = process.env.PORT || 3000,
   mongoose = require('mongoose'),
-  Contacts = require('./api/models/createNewContactModel'), //created model loading here
+  Contacts = require('./api/models/contactsModel'), //created model loading here
   bodyParser = require('body-parser');
   
 // mongoose instance connection url connection
