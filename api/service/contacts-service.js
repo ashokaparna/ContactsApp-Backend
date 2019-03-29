@@ -29,9 +29,9 @@ exports.save = function (contact) {
 /**
  * Returns the contact object matching the id.
  *
- * @param {string} contactId {Id of the  contact object}
+ * @param {string} _id {_id of the  contact object}
  */
-exports.get = function (contactId) {
-    const promise = Sticky.findById(contactId).exec();
+exports.get = function (_id) {
+    const promise = Contact.findOne({_id:_id}).exec();
     return promise
 };

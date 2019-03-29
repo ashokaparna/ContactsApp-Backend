@@ -6,6 +6,7 @@ const contactService = require('../service/contacts-service');
 /**
  * Returns a list of contacts in JSON
  *
+ * @param {request} {HTTP request object}
  * @param {response} {HTTP response object}
  */
 exports.list_all_contacts = function (request, response) {
@@ -19,37 +20,40 @@ exports.list_all_contacts = function (request, response) {
         .catch(renderErrorResponse(response));
 };
 
-
-let mongoose = require('mongoose');
-let Contact = mongoose.model('Contacts');
-
-// exports.list_all_contacts = function(req, res) {
-//   Contact.find({}, function(err, contact) {
-//     res.header('Access-Control-Allow-Origin' , '*' );
-//     if (err)
-//       res.send(err);
-//     res.json(contact);
-//   });
-// };
-
-exports.get_contact_by_id = function(req, res) {
-  Contact.findOne({_id:req.params._id}, function(err, contact) {
-    res.header('Access-Control-Allow-Origin' , '*' );
-    if (err)
-      res.send(err);
-    res.json(contact);
-  });
+/**
+ * Returns a contact object in JSON.
+ *
+ * @param {request} {HTTP request object}
+ * @param {response} {HTTP response object}
+ */
+exports.get_contact_by_id = function (request, response) {
+    response.header('Access-Control-Allow-Origin' , '*' );
+    const resolve = (contact) => {
+        response.status(200);
+        response.json(contact);
+    };
+    contactService.get(request.params._id)
+        .then(resolve)
+        .catch(renderErrorResponse(response));
 };
 
-exports.create_a_contact = function(req, res) {
-  let new_task = new Contact(req.body);
-  new_task.save(function(err, contact) {
-    res.header('Access-Control-Allow-Origin' , '*' );
-    if (err)
-      res.send(err);
-    res.json(contact);
-
-  });
+/**
+ * Creates a new contact with the request JSON and
+ * returns contact JSON object.
+ *
+ * @param {request} {HTTP request object}
+ * @param {response} {HTTP response object}
+ */
+exports.create_a_contact = function (request, response) {
+    const newContact = Object.assign({}, request.body);
+    response.header('Access-Control-Allow-Origin' , '*' );
+    const resolve = (sticky) => {
+        response.status(200);
+        response.json(sticky);
+    };
+    contactService.save(newContact)
+        .then(resolve)
+        .catch(renderErrorResponse(response));
 };
 
 /**
