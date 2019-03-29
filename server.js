@@ -2,7 +2,7 @@ var express = require('express'),
   app = express(),
   port = process.env.PORT || 3000,
   mongoose = require('mongoose'),
-  Contacts = require('./api/models/contactsModel'), //created model loading here
+  Contacts = require('./api/models/contacts-model'), //created model loading here
   bodyParser = require('body-parser');
   
 // mongoose instance connection url connection
@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 
-var routes = require('./api/routes/createNewContactRoute'); //importing route
+var routes = require('./api/routes/contacts-route'); //importing route
 routes(app); //register the route
 
 
