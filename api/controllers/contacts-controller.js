@@ -1,7 +1,6 @@
 'use strict';
 
 
-//import contacts service.
 const contactService = require('../service/contacts-service');
 /**
  * Returns a list of contacts in JSON
