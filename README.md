@@ -1,15 +1,18 @@
-# ASSIGNMENT 6
-* Web app to crop an image
+# ASSIGNMENT 8
+* Server side of contacts app
 
 ## Project Description:
-*IImplement cropping of an image using HTML, CSS, Javascript.
+* Server side of contacts app using Nodejs and REST api
 
 ## Requirement
-* IntelliJ Idea or Visual Studio Code and a web browser.
+* Mongo DB
+* Node package manager 
 
 ## Installation
-1. Clone the repository `https://github.com/neu-mis-info6150-spring-2019/assignment-6-ashokaparna.git`.
-2.Go to the project folder. Right click on OpenCropping.html and select Open With and then select a web browser.
+1. Clone the repository `https://github.com/neu-mis-info6150-spring-2019/assignment-8-ashokaparna.git`.
+2. Go to the project folder. 
+3. Run `npm install`.
+4. Run mongo
 
 ## References:
 * www.w3schools.com
