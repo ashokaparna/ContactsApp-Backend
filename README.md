@@ -1,4 +1,4 @@
-# ASSIGNMENT 8
+# ContactsApp-Backend
 * Server side of contacts app
 
 ## Project Description:
