@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/neu-mis-info6150-spring-2019/assignment-8-ashokaparna#readme",
   "dependencies": {
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "mongoose": "^5.4.19"
   },
   "devDependencies": {
